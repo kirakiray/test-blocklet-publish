@@ -21,8 +21,8 @@ jobs:
           skip-bundle: false
           skip-upload: true
           skip-deploy: false
-          skip-release: false
-          skip-readme: false
+          skip-release: true
+          skip-readme: true
           working-directory: ./
           bundle-command: npm run bundle
           server-endpoint: ${{ secrets.XMARK_NODE_ENDPOINT }}
