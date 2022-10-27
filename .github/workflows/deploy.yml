@@ -1,0 +1,37 @@
+name: Deploy Site
+run-name: ${{ github.actor }} depoly the site
+on: [push]
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Set yarn cache
+        uses: c-hive/gha-yarn-cache@v2
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Deploy Blocklet Site
+        uses: blocklet/action-workflow@v1
+        with:
+          skip-deps: false
+          skip-bundle: false
+          skip-upload: true
+          skip-deploy: false
+          skip-release: false
+          skip-readme: false
+          working-directory: ./
+          bundle-command: npm run bundle
+          store-endpoint: ${{ secrets.STORE_ENDPOINT }}
+          store-access-token: ${{ secrets.STORE_ACCESS_TOKEN }}
+          store-developer-did: ${{ secrets.STORE_DEVELOPER_DID }}
+          server-endpoint: ${{ secrets.XMARK_NODE_ENDPOINT }}
+          server-access-key: ${{ secrets.XMARK_NODE_ACCESS_KEY }}
+          server-access-secret: ${{ secrets.XMARK_NODE_ACCESS_SECRET }}
+          deploy-app-did: xxxxxx
+          deploy-mount-point: xxxxxx
+          slack-webhook: xxxxxx
+          github-token: xxxxx
