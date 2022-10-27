@@ -25,13 +25,6 @@ jobs:
           skip-readme: false
           working-directory: ./
           bundle-command: npm run bundle
-          store-endpoint: ${{ secrets.STORE_ENDPOINT }}
-          store-access-token: ${{ secrets.STORE_ACCESS_TOKEN }}
-          store-developer-did: ${{ secrets.STORE_DEVELOPER_DID }}
           server-endpoint: ${{ secrets.XMARK_NODE_ENDPOINT }}
           server-access-key: ${{ secrets.XMARK_NODE_ACCESS_KEY }}
           server-access-secret: ${{ secrets.XMARK_NODE_ACCESS_SECRET }}
-          deploy-app-did: xxxxxx
-          deploy-mount-point: xxxxxx
-          slack-webhook: xxxxxx
-          github-token: xxxxx
